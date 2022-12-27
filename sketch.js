@@ -1,7 +1,8 @@
+//const const é igual ao var — exceto que você não pode alterar o valor armazenado em const em qualquer lugar do programa.
 
-const Engine = Matter.Engine;
-const World = Matter.World;
-const Bodies = Matter.Bodies;
+const Engine = Matter.Engine; // é usado para criar o motor de física.
+const World = Matter.World; // é usado para criar o mundo físico e adicionar objetos a ele.
+const Bodies = Matter.Bodies; // é usado para criar os objetos físicos que habitam o mundo
 const Body = Matter.Body;
 
 let engine;
@@ -17,17 +18,16 @@ function setup() {
   world = engine.world;
   
    var ball_options = {
-    restitution: 0.95,
-    frictionAir:0.01
+    restitution: 0.95, //quanto maior, mais leve se movimenta
+    frictionAir:0.01 //quanto maior, mais lenta pula 
   }
 
   var rock_options = {
-    restitution: 0.85,
-
+    restitution: 0.85, //quanto maior, mais leve se movimenta
   }
    
    var ground_options ={
-     isStatic: true
+     isStatic: true //se é verdadeiro, ele não se move. se é falso, ele se move. falso é a definição padrão
    };
   
 
@@ -51,7 +51,7 @@ function setup() {
 function draw() 
 {
   background(51);
-  Engine.update(engine);
+  Engine.update(engine); //o mecanismo físico vai sendo atualizado a toda e qualquer modificação e movimentação
   
   ellipse(ball.position.x,ball.position.y,20);
   rect(ground.position.x,ground.position.y,400,20);
